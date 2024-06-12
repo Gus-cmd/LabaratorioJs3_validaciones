@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Datos Recibidos</h1>
+    <p id="nombre"></p>
+    <p id="email"></p>
+    <p id="password"></p>
+
+
+    <script>
+        // Función para obtener los parámetros de la URL
+function obtenerParametrosURL() {
+const parametros = new URLSearchParams(window.location.search);
+const nombre = parametros.get('nombre');
+const email = parametros.get('email');
+const password = parametros.get('password')
+return { nombre, email, password };
+}
+
+// Obtener los valores y mostrarlos en la página
+const { nombre, email } = obtenerParametrosURL();
+document.getElementById('nombre').textContent = `Nombre: ${nombre}`;
+document.getElementById('email').textContent = `Correo Electrónico: ${email}`;
+document.getElementById('password').textContent = `password: ${password}`;
+
+    </script>
+</body>
+</html>
